@@ -1,0 +1,38 @@
+<h1>Tiendas</h1>
+<form (ngSubmit)="!tiendaForm.invalid && saveTienda()" #tiendaForm="ngForm">
+  <div class="container">
+    <div class="alert alert-warning" *ngIf="tiendaForm.dirty && tiendaForm.invalid">Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="tiendaForm.dirty && targetDate.invalid">Enter valid date</div>
+    <div class="alert alert-warning" *ngIf="tiendaForm.dirty && ubicacion.invalid">Enter valid values</div>
+    <fieldset class="form-group">
+      <label>Nombre</label>
+      <input type="text" #nombre= "ngModel" 
+      [(ngModel)]="tienda.nombre"class="form-control" name="nombre" required="required" minlength="3">       
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Ubicacion</label>
+      <input type="text" #ubicacion= "ngModel" 
+      [(ngModel)]="tienda.ubicacion"class="form-control" name="ubicacion" required="required" minlength="5">       
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Descripcion</label>
+      <input type="text" #descripcion= "ngModel" 
+      [(ngModel)]="tienda.descripcion" class="form-control" name="descripcion" minlength="5">       
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Hecho</label>
+      <input type="checkbox" #done= "ngModel" 
+      [(ngModel)]="tienda.done" class="form-control" name="done">       
+    </fieldset>
+
+
+    <fieldset class="form-group">
+      <label>Target Date</label>
+      <input type="date" #targetDate="ngModel"
+      [ngModel]="tienda.targetDate | date:'yyyy-MM-dd'" 
+      (ngModelChange)="tienda.targetDate = $event"
+      class="form-control" name="targetDate" required="required">       
+    </fieldset>
+    <button type="submit" class="btn btn-success">save</button>
+  </div>
+  </form>

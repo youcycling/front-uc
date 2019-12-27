@@ -1,0 +1,22 @@
+<h1>Welcome</h1>
+<div class="container">
+Welcome {{name}} You can manage your todos <a routerLink="/todos">here</a>
+</div>
+
+<div class="container">
+Click here to get a customized welcome message
+<button (click)="getWelcomeMessageWithParameter()" class="btn btn-success">Get Welcome Message</button>
+</div>  
+
+<div class="container" *ngIf="welcomeMessageFromService">
+    <h2>Your Customized Welcome Message </h2>
+         {{welcomeMessageFromService}} 
+    <br>
+     <!-- {{getWelcomeMessageWithParameter()}}  -->
+</div>  
+
+<!-- <div class="container">
+    <br><br>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2985.486330668521!2d2.503772315812186!3d41.55871797924882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb4a66a1663d6d%3A0x1e28d85ab7c660f!2sPort+Bal%C3%ADs!5e0!3m2!1ses!2ses!4v1546864510487" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div> -->
+
