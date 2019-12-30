@@ -1,7 +1,7 @@
 <h1>Productos</h1>
 <div class="container">
     <div class="alert alert-success" *ngIf='message'>{{message}}</div>
-  <table class="table table-hover">
+  <table class="table- table-hover">
     <thead class="thead-light">
       <tr>
         <th>ID</th>
@@ -9,20 +9,24 @@
         <th>Precio</th>
         <th>Tienda</th>
         <th>URL</th>
+        <!-- th>URL IMG</th>-->
         <th>Update</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       <!-- Java - for (Todo todo: todos) {-->
-      <tr *ngFor="let todo of todos">
-        <td>{{todo.description}}</td>
-        <td>{{todo.targetDate | date | uppercase}}</td>
-        <td>{{todo.done}}</td>
-        <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
-        <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+      <tr *ngFor="let producto of productos">
+        <td>{{producto.id}}</td>
+        <td>{{producto.producto}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.tienda}}</td>
+        <td>{{producto.enlace}}</td>
+        <!--  <td>{{producto.enlaceImg}}</td>-->
+        <td><button (click)="updateProducto(producto.id)" class="btn btn-success">Update</button></td>
+        <td><button (click)="deleteProducto(producto.id)" class="btn btn-warning">Delete</button></td>
       </tr>
     </tbody>
   </table>  
-  <div class="row"><button (click)="addTodo()" class="btn btn-success">Add</button></div>
+  <div class="row"><button (click)="addProducto()" class="btn btn-success">Add</button></div>
 </div>

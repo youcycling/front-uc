@@ -21,6 +21,7 @@ import { ListaTiendasComponent } from './lista-tiendas/lista-tiendas.component';
 import { ListaProductosComponent } from './lista-productos/lista-productos.component';
 import { ProductoComponent } from './producto/producto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductoDataService } from './service/data/producto-data.service';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
   ],
   providers: [
-     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true  }
+     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true, providers: [ProductoDataService]  }
   ],
   bootstrap: [AppComponent]
 })
