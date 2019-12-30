@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TiendaDataService } from '../service/data/tienda-data.service';
+import {Sort} from '@angular/material/sort';
 
 export class Tienda{
   constructor(
@@ -24,12 +25,15 @@ export class Tienda{
 export class ListaTiendasComponent implements OnInit {
 
 tiendas: Tienda[]
+sortedTienda: Tienda[]
 message: String
 
   constructor(
     private router: Router,
     private tiendaService: TiendaDataService
-    ) { }
+    ) { 
+          //this.sortedTienda = this.tiendas.slice();
+      }
   
   ngOnInit() {
     this.refreshTiendas()
@@ -63,4 +67,26 @@ message: String
       
   }
 
+  sortData(sort: Sort) {
+    const data = this.tiendas.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedTienda = data;
+      return;
+    }
+
+    this.sortedTienda = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'id': return compare(a.id, b.id, isAsc);
+        case 'nombre': return compare(a.nombre, b.nombre, isAsc);
+        case 'ubicacion': return compare(a.ubicacion, b.ubicacion, isAsc);
+        default: return 0;
+      }
+    });
+    console.log("Ordena")
+  }
+
+}
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

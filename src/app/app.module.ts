@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {MatSortModule} from '@angular/material/sort';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { ListaProductosComponent } from './lista-productos/lista-productos.compo
 import { ProductoComponent } from './producto/producto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductoDataService } from './service/data/producto-data.service';
+
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { ProductoDataService } from './service/data/producto-data.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSortModule
   ],
   providers: [
      {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true, providers: [ProductoDataService]  }
