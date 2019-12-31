@@ -2,6 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,7 +55,10 @@ import { ProductoDataService } from './service/data/producto-data.service';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatTableModule
   ],
   providers: [
      {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true, providers: [ProductoDataService]  }
