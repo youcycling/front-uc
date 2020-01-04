@@ -34,9 +34,9 @@ tiendas: Tienda[]
 sortedTienda: Tienda[]
 message: String
 // MatPaginator Inputs
-length = 100;
-pageSize = 10;
-pageSizeOptions: number[] = [5, 10, 25, 100];
+//length = 100;
+//pageSize = 10;
+//pageSizeOptions: number[] = [5, 10, 25, 100];
 
 // MatPaginator Output
 pageEvent: PageEvent;
@@ -57,14 +57,16 @@ dataSource = new MatTableDataSource<Tienda>();
   
   ngOnInit() {
     this.refreshTiendas()
-    this.dataSource.paginator = this.paginator;  
+    
     }
   refreshTiendas(){
     this.tiendaService.retrieveAllTiendas('Alan').subscribe(
       response => {
         //console.log(response);
         this.tiendas = response;
-        this.dataSource = response
+        //this.dataSource = response
+        this.dataSource = new MatTableDataSource<Tienda>(this.tiendas)
+        this.dataSource.paginator = this.paginator;  
       }
     )
  
