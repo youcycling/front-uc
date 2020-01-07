@@ -1,12 +1,17 @@
 <h1>Producto</h1>
-<form (ngSubmit)="!productoForm.invalid && saveProducto()" #productoForm="ngForm">
+  <form (ngSubmit)="!tiendaForm.invalid && saveTienda()" #tiendaForm="ngForm">
   <div class="container">
-    <div class="alert alert-warning" *ngIf="productoForm.dirty && productoForm.invalid">Enter valid values</div>
-    <div class="alert alert-warning" *ngIf="productoForm.dirty && producto.invalid">Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="tiendaForm.dirty && tiendaForm.invalid">Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="tiendaForm.dirty && targetDate.invalid">Enter valid date</div>
+    <div class="alert alert-warning" *ngIf="tiendaForm.dirty && ubicacion.invalid">Enter valid values</div>
     <fieldset class="form-group">
-      <label>Nombre</label>
-      <input type="text" #producto= "ngModel" 
-      [(ngModel)]="producto.producto"class="form-control" name="producto" required="required" minlength="3">       
+     <strong> <label>ID</label>
+      {{producto.id}} </strong>    
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Producto</label>
+      <input type="text" #nombre= "ngModel" 
+      [(ngModel)]="producto.producto"class="form-control" name="nombre" required="required" minlength="3">       
     </fieldset>
     <fieldset class="form-group">
       <label>Precio</label>
@@ -19,23 +24,10 @@
       [(ngModel)]="producto.tienda" class="form-control" name="tienda" minlength="5">       
     </fieldset>
     <fieldset class="form-group">
-      <label>Enlace</label>
-      <input type="text" #enlace= "ngModel" 
-      [(ngModel)]="producto.enlace" class="form-control" name="enlace">       
+      <label>Enlace Producto</label>
+      <input type="text" #enlace="ngModel"
+      [ngModel]="producto.enlace" class="form-control" name="enlace" required="required">       
     </fieldset>
     <button type="submit" class="btn btn-success">save</button>
   </div>
   </form>
-
-  
-
-TABLA
-  <table>
-    <tr>
-        <td>{{producto.id}}</td>
-        <td>{{producto.producto}}</td>
-        <td>{{producto.precio}}</td>
-        <td>{{producto.tienda}}</td>
-        <td>{{producto.enlace}}</td>
-    </tr>
-    </table>

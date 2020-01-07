@@ -13,15 +13,15 @@ export class ProductoComponent implements OnInit {
 
   id:number
   producto: Producto
+
   constructor(
     private route: ActivatedRoute, 
-    private productoService: ProductoDataService
-
+    private productoService: ProductoDataService,
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    this.producto = new Producto(this.id, '', '','', '');
+    this.producto = new Producto(this.id, '', '','', '','');
     if (this.id != -1) {
       this.productoService.retriveProducto(this.id).subscribe(
         data => {
@@ -30,6 +30,7 @@ export class ProductoComponent implements OnInit {
         }
       )
     }
+    console.log(this.producto)
   }
 
 }
