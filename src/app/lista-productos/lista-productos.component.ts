@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductoDataService} from '../service/data/producto-data.service';
-import { TiendaDataService } from '../service/data/tienda-data.service';
+
 
 
 export class Producto {
-  private id: number
-  private producto: string
-  private precio: string
-  private tienda: string
-  private enlace: string
-  private enlaceImg: string
+  constructor(
+  private id: number,
+  private producto: string,
+  private precio: string,
+  private tienda: string,
+  private enlace: string,
+  private enlaceImg: string){
+    
+  }
 }
 
 
@@ -24,15 +28,14 @@ export class ListaProductosComponent implements OnInit {
   message: string
 
   constructor(
-    private productoService: ProductoDataService
+    private productoService: ProductoDataService,
+    private router: Router
 
   ) { }
 
   ngOnInit() {
     this.refreshProductos()
   }
-
-
   refreshProductos(){
     this.productoService.retrieveAllProductos().subscribe(
       response =>{
@@ -41,7 +44,13 @@ export class ListaProductosComponent implements OnInit {
         this.productos = response
       }
     )
+  }
 
-    
+  updateProducto(id){
+    console.log(`Actualizar producto ${id}`)
+    this.router.navigate(['productos', id])
+  }
+  deleteProducto(id){
+    console.log(`Borrar producto ${id}`)
   }
 }

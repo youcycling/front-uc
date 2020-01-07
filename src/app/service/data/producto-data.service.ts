@@ -17,4 +17,7 @@ export class ProductoDataService {
   retrieveAllProductos(){
     return this.http.get<Producto[]>(`${TODO_JPA_API_URL}/users/productos`);
 }
+  retriveProducto(id){
+    return this.http.get<Producto>(`${TODO_JPA_API_URL}/users/productos/${id}`)
+  }
 }

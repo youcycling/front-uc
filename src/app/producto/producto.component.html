@@ -1,3 +1,41 @@
-<p>
-  producto works!
-</p>
+<h1>Producto</h1>
+<form (ngSubmit)="!productoForm.invalid && saveProducto()" #productoForm="ngForm">
+  <div class="container">
+    <div class="alert alert-warning" *ngIf="productoForm.dirty && productoForm.invalid">Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="productoForm.dirty && producto.invalid">Enter valid values</div>
+    <fieldset class="form-group">
+      <label>Nombre</label>
+      <input type="text" #producto= "ngModel" 
+      [(ngModel)]="producto.producto"class="form-control" name="producto" required="required" minlength="3">       
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Precio</label>
+      <input type="text" #precio= "ngModel" 
+      [(ngModel)]="producto.precio"class="form-control" name="precio" required="required" minlength="5">       
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Tienda</label>
+      <input type="text" #tienda= "ngModel" 
+      [(ngModel)]="producto.tienda" class="form-control" name="tienda" minlength="5">       
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Enlace</label>
+      <input type="text" #enlace= "ngModel" 
+      [(ngModel)]="producto.enlace" class="form-control" name="enlace">       
+    </fieldset>
+    <button type="submit" class="btn btn-success">save</button>
+  </div>
+  </form>
+
+  
+
+TABLA
+  <table>
+    <tr>
+        <td>{{producto.id}}</td>
+        <td>{{producto.producto}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.tienda}}</td>
+        <td>{{producto.enlace}}</td>
+    </tr>
+    </table>

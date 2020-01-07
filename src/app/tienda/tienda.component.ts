@@ -28,7 +28,7 @@ export class TiendaComponent implements OnInit {
       this.tiendaService.retriveTienda('Alan',this.id).subscribe(
         data => {
           this.tienda = data
-          //console.log(data)
+          console.log(data)
         }
       )
     }
