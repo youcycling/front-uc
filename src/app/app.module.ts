@@ -5,6 +5,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
+import { JwPaginationComponent } from 'jw-angular-pagination';
 
 
 
@@ -47,7 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     ListaTiendasComponent,
     ListaProductosComponent,
-    ProductoComponent
+    ProductoComponent,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       <!-- Java - for (Todo todo: todos) {-->
-      <tr *ngFor="let producto of productos">
+      <tr *ngFor="let producto of pageOfItems">
         <td>{{producto.id}}</td>
         <td>{{producto.producto}}</td>
         <td>{{producto.precio}}</td>
@@ -28,5 +28,8 @@
       </tr>
     </tbody>
   </table>  
+      <div class="card-footer pb-0 pt-3">
+        <jw-pagination [items]="productos" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
   <div class="row"><button (click)="addProducto()" class="btn btn-success">Add</button></div>
 </div>

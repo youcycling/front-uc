@@ -4,6 +4,7 @@ import { ProductoDataService} from '../service/data/producto-data.service';
 
 
 
+
 export class Producto {
   constructor(
   private id: number,
@@ -26,6 +27,7 @@ export class ListaProductosComponent implements OnInit {
 
   productos: Producto[]
   message: string
+  pageOfItems: Array<any>;
 
   constructor(
     private productoService: ProductoDataService,
@@ -35,13 +37,15 @@ export class ListaProductosComponent implements OnInit {
 
   ngOnInit() {
     this.refreshProductos()
+    
   }
   refreshProductos(){
     this.productoService.retrieveAllProductos().subscribe(
       response =>{
-        console.log(response)
-        console.log('recuperar productos')
+        //console.log(response)
+        //console.log('recuperar productos')
         this.productos = response
+        console.log(this.productos)
       }
     )
   }
@@ -53,4 +57,9 @@ export class ListaProductosComponent implements OnInit {
   deleteProducto(id){
     console.log(`Borrar producto ${id}`)
   }
+
+      onChangePage(pageOfItems: Array<any>) {
+        // update current page of items
+        this.pageOfItems = pageOfItems;
+    }
 }
