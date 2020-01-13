@@ -6,6 +6,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
 import { JwPaginationComponent } from 'jw-angular-pagination';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
 
 
 
@@ -60,7 +62,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSortModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    MatTableModule
+    MatTableModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [
      {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true }
